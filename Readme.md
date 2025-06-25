@@ -65,6 +65,8 @@ model = Sequential([
     Dense(256, activation='relu'),
     Dense(8, activation='softmax')
 ])
+```
+
 ## 📈 Classification Report
 
                 precision    recall  f1-score   support
