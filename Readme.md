@@ -1,4 +1,4 @@
-# 🎧 Speech Emotion Recognition Web App
+## 🎧 Speech Emotion Recognition Web App
 
 A fully functional web application built using **Streamlit** that classifies emotions from `.wav` audio files using a deep learning model trained on the **RAVDESS** dataset with MFCC features.
 
@@ -29,21 +29,21 @@ This project focuses on detecting human emotions from speech using advanced audi
 
 1. **File Loading:**
 
-- Audio files are loaded using librosa for efficient and reliable audio handling.
+    - Audio files are loaded using librosa for efficient and reliable audio handling.
 
 2. **MFCC Extraction:**
 
-- Extracts 40 MFCC features from each audio sample.
+    - Extracts 40 MFCC features from each audio sample.
 
-- Uses a 3-second segment starting from a 0.5s offset to focus on the core speech.
+    - Uses a 3-second segment starting from a 0.5s offset to focus on the core speech.
 
-- Features are averaged across time frames, resulting in a compact (40,) feature vector per sample.
+    - Features are averaged across time frames, resulting in a compact (40,) feature vector per sample.
 
 3. **Label Encoding:**
 
-- Emotion labels are parsed directly from filenames.
+    - Emotion labels are parsed directly from filenames.
 
-- One-Hot Encoding is used for multi-class classification, enabling the model to distinguish all 8 emotions.
+    - One-Hot Encoding is used for multi-class classification, enabling the model to distinguish all 8 emotions.
 
 ---
 
