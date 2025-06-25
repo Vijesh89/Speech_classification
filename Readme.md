@@ -65,3 +65,19 @@ model = Sequential([
     Dense(256, activation='relu'),
     Dense(8, activation='softmax')
 ])
+## 📈 Classification Report
+
+                precision    recall  f1-score   support
+
+       angry       0.88      0.84      0.86        75
+        calm       0.83      0.92      0.87        75
+     disgust       0.84      0.67      0.74        39
+     fearful       0.76      0.67      0.71        75
+       happy       0.86      0.73      0.79        75
+     neutral       0.73      0.92      0.81        38
+         sad       0.75      0.75      0.75        75
+   surprised       0.73      0.97      0.84        39
+
+    accuracy                           0.80       491
+   macro avg       0.80      0.81      0.80       491
+weighted avg       0.80      0.80      0.80       491
