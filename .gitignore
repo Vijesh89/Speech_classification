@@ -1,0 +1,8 @@
+nenv/
+.env/
+_pycache_/
+.ipynb_checkpoints/
+*.pyc
+*.h5
+*.pkl
+*.log
