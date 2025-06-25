@@ -69,6 +69,7 @@ model = Sequential([
 
 ## 📈 Classification Report
 
+```python
                 precision    recall  f1-score   support
 
        angry       0.88      0.84      0.86        75
@@ -83,3 +84,6 @@ model = Sequential([
     accuracy                           0.80       491
    macro avg       0.80      0.81      0.80       491
 weighted avg       0.80      0.80      0.80       491
+
+```
+
