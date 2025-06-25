@@ -6,7 +6,13 @@ A fully functional web application built using **Streamlit** that classifies emo
 
 ## 📌 Project Description
 
-This project focuses on detecting human emotions from speech using audio processing and deep learning. The web app receives an input audio file in `.wav` format, extracts **MFCC (Mel-Frequency Cepstral Coefficients)** features, and uses a pre-trained neural network to predict the corresponding emotion.
+This project focuses on detecting human emotions from speech using advanced audio processing and deep learning. The web app allows users to upload a .wav audio file, extracts MFCC (Mel-Frequency Cepstral Coefficients) features, and leverages a pre-trained neural network to predict the underlying emotion.
+
+- User-friendly interface: Upload and classify audio in seconds.
+
+- Real-time prediction: Get instant emotion results for your speech.
+
+- Robust model: Trained on a diverse, high-quality dataset for reliable results.
 
 ---
 
@@ -21,20 +27,29 @@ This project focuses on detecting human emotions from speech using audio process
 
 ## 🔍 Preprocessing Methodology
 
-1. **File Loading**: `.wav` files loaded using `librosa`.
-2. **MFCC Extraction**:
-   - Duration: 3 seconds (starting from 0.5s offset)
-   - 40 MFCCs extracted using `librosa.feature.mfcc()`
-   - Feature shape: `(40,)`, averaged across time frames
-3. **Label Encoding**:
-   - Emotion labels parsed from filenames
-   - One-Hot Encoding for multi-class classification
+1. **File Loading:**
+
+- Audio files are loaded using librosa for efficient and reliable audio handling.
+
+2. **MFCC Extraction:**
+
+- Extracts 40 MFCC features from each audio sample.
+
+- Uses a 3-second segment starting from a 0.5s offset to focus on the core speech.
+
+- Features are averaged across time frames, resulting in a compact (40,) feature vector per sample.
+
+3. **Label Encoding:**
+
+- Emotion labels are parsed directly from filenames.
+
+- One-Hot Encoding is used for multi-class classification, enabling the model to distinguish all 8 emotions.
 
 ---
 
 ## 🧠 Model Architecture
 
-A hybrid CNN + BiGRU model trained on MFCC features with the following structure:
+A hybrid CNN + BiGRU deep learning model trained on MFCC features, designed to capture both local patterns and long-term dependencies in audio:
 
 ```python
 model = Sequential([
@@ -66,6 +81,14 @@ model = Sequential([
     Dense(8, activation='softmax')
 ])
 ```
+## Key Points:
+- CNN layers extract local time-frequency patterns from MFCCs.
+
+- Bidirectional GRUs capture temporal dependencies in both directions.
+
+- Dropout and BatchNorm help prevent overfitting and stabilize training.
+
+- Final dense layers map extracted features to emotion probabilities.
 
 ## 📈 Classification Report
 
@@ -86,4 +109,13 @@ model = Sequential([
 weighted avg       0.80      0.80      0.80       491
 
 ```
+
+## Summary & Insights:
+- Overall accuracy: 80% on the test set, showing strong generalization.
+
+- Highest performance: calm, angry, and happy emotions, with F1-scores above 0.85.
+
+- Challenging classes: disgust and fearful show slightly lower recall, indicating these emotions are harder to distinguish—possibly due to subtle vocal cues.
+
+- Balanced performance: Macro and weighted averages are both at 0.80, reflecting consistent results across all classes.
 
